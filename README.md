@@ -1,2 +1,4 @@
-# web-425
-Repository for Web-425
+# Web-425 Angular with TypeScript
+## Contributors
+* Richard Krasso
+* Nicole Nielsen 
