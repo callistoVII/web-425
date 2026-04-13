@@ -8,16 +8,25 @@ describe('MenuComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [MenuComponent]
-    })
-    .compileComponents();
+      imports: [MenuComponent],
+    }).compileComponents();
 
     fixture = TestBed.createComponent(MenuComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });
 
+  /** Created by default when the component is generated */
+  /* Unit test 1 */
+
   it('should create', () => {
     expect(component).toBeTruthy();
+  });
+
+  /** Unit test 2 */
+  it('should correctly display a list of tacos', () => {
+    const compiled = fixture.nativeElement as HTMLElement; // get the compiled HTML of the component
+    const menuItems = compiled.querySelectorAll('.menu-item'); // get all the menu items
+    expect(menuItems.length).toEqual(component.menu.length); // check if the number of menu items is equal to the number of items in the menu array
   });
 });

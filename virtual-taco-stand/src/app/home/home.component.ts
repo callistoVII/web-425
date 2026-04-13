@@ -65,31 +65,27 @@ customers-->
   `,
   styles: [
     `
-.highlights-container {
-display: flex
-justify-content: space-between;
-align-items: flex-start;
-flex-wrap:
-wrap;
-gap: 20px;
-}
-.highlight {
-text-align:
-center;
-flex: 0 1 calc(33.333%
-20px);
-box-sizing: border-box;
-}
-.highlight img {
-max-
-width: 100%;
-height: auto;
-object-fit: cover;
-}
-.highlight p {
-margin-top: 10px;
-}
-`,
+      .highlights-container {
+        display: flex;
+        justify-content: space-between;
+        align-items: flex-start;
+        flex-wrap: wrap;
+        gap: 20px;
+      }
+      .highlight {
+        text-align: center;
+        flex: 0 1 calc(33.333% 20px);
+        box-sizing: border-box;
+      }
+      .highlight img {
+        max-width: 100%;
+        height: auto;
+        object-fit: cover;
+      }
+      .highlight p {
+        margin-top: 10px;
+      }
+    `,
   ],
 })
 export class HomeComponent {}

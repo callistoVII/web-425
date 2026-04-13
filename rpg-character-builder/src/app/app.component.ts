@@ -18,7 +18,7 @@ import { RouterLink, RouterOutlet } from '@angular/router';
       <main class="main-content">
         <nav class="navbar">
           <ul>
-            <li><a routerLink="/home"> Home </a></li>
+            <li><a routerLink="/"> Home </a></li>
             <li><a routerLink="/players"> Players </a></li>
             <li><a routerLink="/create-character"> Create Character </a></li>
             <li><a routerLink="/create-guild"> Create Guild </a></li>
@@ -33,8 +33,7 @@ import { RouterLink, RouterOutlet } from '@angular/router';
 
       <footer class="footer">
         <nav class="footer-nav">
-          <a routerLink="/home">Home</a> |
-          <a routerLink="/players">Players</a> |
+          <a routerLink="/">Home</a> | <a routerLink="/players">Players</a> |
           <a routerLink="/create-character">Create Character</a> |
           <a routerLink="/create-guild">Create Guild</a> |
           <a routerLink="/character-faction">Faction</a>
@@ -45,4 +44,6 @@ import { RouterLink, RouterOutlet } from '@angular/router';
   `,
   styles: [],
 })
-export class AppComponent {}
+export class AppComponent {
+  title = 'rpg-character-builder';
+}
