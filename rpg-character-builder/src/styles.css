@@ -2,6 +2,7 @@
 
 /* GLOBAL FONT IMPORTS */
 @import url("https://fonts.googleapis.com/css2?family=Bitcount+Single:wght@100..900&family=Cormorant+Unicase:wght@300;400;500;600;700&family=Nunito:ital,wght@0,200..1000;1,200..1000&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Cinzel:wght@600&family=Roboto&family=Great+Vibes&display=swap");
 
 /* GLOBAL LAYOUT WRAPPER */
 .wrapper {
@@ -17,7 +18,7 @@
 .banner {
   width: 100%;
   text-align: center;
-  background: #3b2f2f;
+  background: #262109;
   border-bottom: 4px solid #c9a86a;
   padding: 10px 0;
 }
@@ -50,7 +51,7 @@
   margin: 0 0 40px 0;
   display: flex;
   justify-content: space-around;
-  background: #3b2f2f;
+  background: #262109;
   border: 3px solid #c9a86a;
   border-radius: 8px;
   padding: 12px;
@@ -61,7 +62,7 @@
   color: #f8e9c4;
   text-decoration: none;
   font-family: "Cormorant Unicase", serif;
-  font-size: 1.1rem;
+  font-size: 1.3rem;
   transition:
     color 0.3s ease,
     transform 0.3s ease;
@@ -74,11 +75,11 @@
 
 /* CONTENT PANEL */
 .content {
-  background: #fdf7e6;
+  background: #fdf5e6;
   border: 2px solid #c9a86a;
   border-radius: 10px;
   padding: 25px;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
 }
 /* PLAYERS GRID */
 .players-grid {
@@ -89,10 +90,10 @@
 }
 
 .player-card {
-  background: #c9cec0;
+  background: #e2e4d6;
   padding: 15px;
   border-radius: 8px;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.15);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.25);
 }
 
 .player-card h3 {
@@ -105,9 +106,190 @@
   color: #444;
 }
 
+/* HOME PAGE HERO SECTION */
+.home-wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+}
+
+.hero {
+  position: relative;
+  text-align: center;
+}
+
+.hero-img {
+  width: 100%;
+  border-radius: 10px;
+  filter: brightness(0.8);
+  transition: filter 0.4s ease;
+}
+
+.hero-img:hover {
+  filter: brightness(1.1);
+}
+
+.hero-title {
+  position: absolute;
+  bottom: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  font-family: "Cinzel", serif;
+  font-size: 2.5rem;
+  color: #ffe44b;
+  text-shadow: 4px 4px 8px #000;
+}
+
+/* HOME PAGE INTRO SECTION */
+.intro p {
+  font-size: 1.2rem;
+  line-height: 1.7;
+  background: #fffbee;
+  border: 2px solid #c9a86a;
+  border-radius: 10px;
+  padding: 20px;
+}
+
+/* HOME PAGE FEATURES SECTION */
+.features {
+  display: flex;
+  justify-content: space-between;
+  gap: 20px;
+}
+
+.feature-card {
+  background: #e2e4d6;
+  border: 2px solid #c9a86a;
+  border-radius: 10px;
+  padding: 15px;
+  text-align: center;
+  flex: 1;
+  transition:
+    transform 0.3s ease,
+    box-shadow 0.3s ease;
+}
+
+.feature-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+}
+
+.feature-card img {
+  width: 100%;
+  border-radius: 8px;
+  transition: transform 0.3s ease;
+}
+
+.feature-card:hover img {
+  transform: scale(1.05);
+}
+
+.feature-card h3 {
+  font-family: "Cinzel", serif;
+  margin-top: 10px;
+}
+
+/* CREATE CHARACTER PAGE */
+.create-form {
+  background: #fdf5e6;
+  border: 3px solid #c9a86a;
+  border-radius: 10px;
+  padding: 25px;
+  max-width: 600px;
+  margin: 0 auto;
+  box-shadow: 0 5px 12px rgba(0, 0, 0, 0.25);
+  font-family: "Nunito", sans-serif;
+}
+
+.rpg-title {
+  font-family: "Cinzel", serif;
+  text-align: center;
+  color: #262109;
+  margin-bottom: 20px;
+  font-size: 2rem;
+}
+
+.form-row {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 20px;
+}
+
+.form-row label {
+  font-family: "Cormorant Unicase", serif;
+  font-size: 1.2rem;
+  margin-bottom: 6px;
+  color: #262109;
+}
+
+.create-form input[type="text"],
+.create-form select {
+  padding: 10px;
+  border: 2px solid #c9a86a;
+  border-radius: 6px;
+  background: #ffefd6;
+  font-size: 1rem;
+  transition:
+    box-shadow 0.3s ease,
+    transform 0.2s ease;
+}
+
+.create-form input[type="text"]:focus,
+.create-form select:focus {
+  outline: none;
+  box-shadow: 0 0 8px rgba(201, 168, 106, 0.8);
+  transform: scale(1.02);
+}
+
+.submit-btn {
+  background: #262109;
+  color: #f8e9c4;
+  border: 2px solid #c9a86a;
+  padding: 12px 20px;
+  border-radius: 8px;
+  font-family: "Cormorant Unicase", serif;
+  font-size: 1.2rem;
+  transition:
+    background 0.3s ease,
+    transform 0.3s ease;
+  display: block;
+  margin: 0 auto;
+}
+
+.submit-btn:hover {
+  background: #796008;
+  transform: translateY(-4px);
+}
+
+/* CREATED CHARACTERS SECTION */
+.players-grid {
+  margin-top: 30px;
+}
+
+.player-card {
+  background: #e2e4d6;
+  border: 2px solid #c9a86a;
+  border-radius: 10px;
+  padding: 15px;
+  box-shadow: 0 3px 8px rgba(0, 0, 0, 0.25);
+  transition:
+    transform 0.3s ease,
+    box-shadow 0.3s ease;
+}
+
+.player-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 8px 18px rgba(0, 0, 0, 0.3);
+}
+
+.player-card h3 {
+  font-family: "Cinzel", serif;
+  margin-bottom: 10px;
+}
+
 /* FOOTER */
 .footer {
-  background-color: #3b2f2f;
+  background-color: #262109;
   color: #f8e9c4;
   text-align: center;
   padding: 20px;
@@ -128,5 +310,5 @@
 .footer p {
   margin-top: 10px;
   font-family: "Bitcount Single", system-ui;
-  font-size: 1.4rem;
+  font-size: 1.2rem;
 }

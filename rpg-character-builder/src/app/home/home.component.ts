@@ -6,7 +6,7 @@ import { Component } from '@angular/core';
   template: `
     <div class="home-wrapper">
       <section class="hero">
-        <img src="assets/rpg-banner.jpg" alt="RPG banner" class="hero-img" />
+        <img src="assets/rpg-hero.png" alt="RPG hero" class="hero-img" />
         <h2 class="hero-title">Forge Your Legend</h2>
       </section>
 
@@ -41,109 +41,25 @@ import { Component } from '@angular/core';
 
       <section class="features">
         <div class="feature-card">
-          <img src="assets/rpg-cleric.jpg" alt="Cleric character" />
+          <img src="assets/rpg-rogue.jpg" alt="Create hero" />
           <h3>Create Your Hero</h3>
           <p>Craft unique characters with custom stats, lore, and abilities.</p>
         </div>
 
         <div class="feature-card">
-          <img src="assets/rpg-mage.jpg" alt="Mage character" />
+          <img src="assets/rpg-party.png" alt="Build party" />
           <h3>Build Your Party</h3>
           <p>Assemble a team of heroes ready to take on any quest.</p>
         </div>
 
         <div class="feature-card">
-          <img src="assets/rpg-rogue.jpg" alt="Rogue character" />
+          <img src="assets/rpg-sword.png" alt="Forge story" />
           <h3>Forge Your Story</h3>
           <p>Shape the destiny of your characters through narrative choices.</p>
         </div>
       </section>
     </div>
   `,
-  styles: [
-    `
-      @import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@600&family=Roboto&family=Great+Vibes&display=swap');
-
-      .home-wrapper {
-        display: flex;
-        flex-direction: column;
-        gap: 40px;
-      }
-
-      .hero {
-        position: relative;
-        text-align: center;
-      }
-
-      .hero-img {
-        width: 100%;
-        border-radius: 10px;
-        filter: brightness(0.9);
-        transition: filter 0.4s ease;
-      }
-
-      .hero-img:hover {
-        filter: brightness(1.1);
-      }
-
-      .hero-title {
-        position: absolute;
-        bottom: 20px;
-        left: 50%;
-        transform: translateX(-50%);
-        font-family: 'Cinzel', serif;
-        font-size: 3rem;
-        color: #f8e9c4;
-        text-shadow: 2px 2px 6px #000;
-      }
-
-      .intro p {
-        font-size: 1.2rem;
-        line-height: 1.7;
-        background: #ffffff;
-        border: 2px solid #c9a86a;
-        border-radius: 10px;
-        padding: 20px;
-      }
-
-      .features {
-        display: flex;
-        justify-content: space-between;
-        gap: 20px;
-      }
-
-      .feature-card {
-        background: #fff;
-        border: 2px solid #c9a86a;
-        border-radius: 10px;
-        padding: 15px;
-        text-align: center;
-        flex: 1;
-        transition:
-          transform 0.3s ease,
-          box-shadow 0.3s ease;
-      }
-
-      .feature-card:hover {
-        transform: translateY(-8px);
-        box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
-      }
-
-      .feature-card img {
-        width: 100%;
-        border-radius: 8px;
-        transition: transform 0.3s ease;
-      }
-
-      .feature-card:hover img {
-        transform: scale(1.05);
-      }
-
-      .feature-card h3 {
-        font-family: 'Cinzel', serif;
-        margin-top: 10px;
-      }
-    `,
-  ],
+  styles: [],
 })
 export class HomeComponent {}

@@ -31,22 +31,7 @@ module.exports = function (config) {
       reporters: [{ type: "html" }, { type: "text-summary" }],
     },
     reporters: ["progress", "kjhtml"],
-
-    browsers: ["CustomFirefox"],
-
-    // had to find a way around my webroot web threat shield in order to test.
-    customLaunchers: {
-      CustomFirefox: {
-        base: "Firefox",
-        profile:
-          "C:\\Users\\nikin\\AppData\\Roaming\\Mozilla\\Firefox\\Profiles\\6nhec6u4.karma-profile",
-        prefs: {
-          "browser.startup.homepage_override.mstone": "ignore",
-          "browser.startup.homepage": "about:blank",
-        },
-      },
-    },
-
+    browsers: ["Firefox"],
     restartOnFileChange: true,
   });
 };

@@ -18,48 +18,28 @@ interface Character {
     <div class="main-content">
       <h2 class="rpg-title">Character Roster</h2>
 
-      <div class="players-grid">
-        @for (c of characters; track c.name) {
-          <div class="player-card">
-            <h3>{{ c.name }}</h3>
-            <p><strong>Gender:</strong> {{ c.gender }}</p>
-            <p><strong>Class:</strong> {{ c.class }}</p>
-            <p><strong>Faction:</strong> {{ c.faction }}</p>
-            <p><strong>Starting Location:</strong> {{ c.startingLocation }}</p>
-            <p class="funfact">
-              <em>{{ c.funFact }}</em>
-            </p>
-          </div>
-        }
-      </div>
+      @if (hasCharacters) {
+        <div class="players-grid">
+          @for (c of characters; track c.name) {
+            <div class="player-card">
+              <h3>{{ c.name }}</h3>
+              <p><strong>Gender:</strong> {{ c.gender }}</p>
+              <p><strong>Class:</strong> {{ c.class }}</p>
+              <p><strong>Faction:</strong> {{ c.faction }}</p>
+              <p>
+                <strong>Starting Location:</strong> {{ c.startingLocation }}
+              </p>
+              <p class="funfact">
+                <em>{{ c.funFact }}</em>
+              </p>
+            </div>
+          }
+        </div>
+      } @else {
+        <p>No Characters Found.</p>
+      }
     </div>
   `,
-  styles: [
-    `
-      .title {
-        text-align: center;
-        margin-bottom: 20px;
-      }
-
-      .grid {
-        display: grid;
-        grid-template-columns: repeat(3, 1fr);
-        gap: 15px;
-      }
-
-      .card {
-        padding: 15px;
-        border-radius: 8px;
-        background: #f4f4f4;
-        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.15);
-      }
-
-      .funfact {
-        margin-top: 10px;
-        color: #444;
-      }
-    `,
-  ],
 })
 export class PlayersComponent {
   characters: Character[] = [
@@ -144,4 +124,13 @@ export class PlayersComponent {
       funFact: 'Elowen communicates with spirits of the forest.',
     },
   ];
+
+  get hasCharacters(): boolean {
+    const valid = Array.isArray(this.characters) && this.characters.length > 0;
+    if (!valid) {
+      console.warn('PlayersComponent: No characters available to display.');
+    }
+
+    return valid;
+  }
 }
