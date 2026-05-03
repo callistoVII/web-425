@@ -1,8 +1,19 @@
 /* GLOBAL STYLES */
 
 /* GLOBAL FONT IMPORTS */
-@import url("https://fonts.googleapis.com/css2?family=Bitcount+Single:wght@100..900&family=Cormorant+Unicase:wght@300;400;500;600;700&family=Nunito:ital,wght@0,200..1000;1,200..1000&display=swap");
-@import url("https://fonts.googleapis.com/css2?family=Cinzel:wght@600&family=Roboto&family=Great+Vibes&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@400;700;900&family=Cormorant+Unicase:wght@300;400;500;600;700&family=Epilogue:ital,wght@0,100..900;1,100..900&family=Jacquard+12&display=swap");
+
+/* VARIABLES */
+
+:root {
+  --rpg-panel-bg: #f7f2e8;
+  --rpg-card-bg: #fffdf8;
+  --rpg-border: #5a4632;
+
+  --rpg-body-font: "Cormorant Unicase", serif;
+  --rpg-title-font: "Cinzel", serif;
+  --rpg-ui-font: "Epilogue", sans-serif;
+}
 
 /* GLOBAL LAYOUT WRAPPER */
 .wrapper {
@@ -10,7 +21,7 @@
   min-height: 100vh;
   display: flex;
   flex-direction: column;
-  font-family: "Nunito", sans-serif;
+  font-family: "Epilogue", sans-serif;
   color: #2b2b2b;
 }
 
@@ -44,68 +55,6 @@
   padding: 20px;
 }
 
-/* NAVIGATION BAR */
-.navbar ul {
-  list-style: none;
-  padding: 0;
-  margin: 0 0 40px 0;
-  display: flex;
-  justify-content: space-around;
-  background: #262109;
-  border: 3px solid #c9a86a;
-  border-radius: 8px;
-  padding: 12px;
-  gap: 20px;
-}
-
-.navbar a {
-  color: #f8e9c4;
-  text-decoration: none;
-  font-family: "Cormorant Unicase", serif;
-  font-size: 1.3rem;
-  transition:
-    color 0.3s ease,
-    transform 0.3s ease;
-}
-
-.navbar a:hover {
-  color: #d4b46a;
-  transform: scale(1.1);
-}
-
-/* CONTENT PANEL */
-.content {
-  background: #fdf5e6;
-  border: 2px solid #c9a86a;
-  border-radius: 10px;
-  padding: 25px;
-  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
-}
-/* PLAYERS GRID */
-.players-grid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 20px;
-  margin-top: 20px;
-}
-
-.player-card {
-  background: #e2e4d6;
-  padding: 15px;
-  border-radius: 8px;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.25);
-}
-
-.player-card h3 {
-  margin-top: 0;
-  font-family: "Cinzel", serif;
-}
-
-.funfact {
-  margin-top: 10px;
-  color: #444;
-}
-
 /* HOME PAGE HERO SECTION */
 .home-wrapper {
   display: flex;
@@ -134,7 +83,7 @@
   bottom: 20px;
   left: 50%;
   transform: translateX(-50%);
-  font-family: "Cinzel", serif;
+  font-family: "Cinzel Decorative", serif;
   font-size: 2.5rem;
   color: #ffe44b;
   text-shadow: 4px 4px 8px #000;
@@ -185,8 +134,127 @@
 }
 
 .feature-card h3 {
-  font-family: "Cinzel", serif;
+  font-family: "Cinzel Decorative", serif;
   margin-top: 10px;
+}
+
+/* NAVIGATION BAR */
+
+.navbar {
+  background: #262109;
+  border: 3px solid #c9a86a;
+  border-radius: 8px;
+  padding: 12px 20px;
+  margin-top: 20px;
+  margin-bottom: 30px;
+  display: flex;
+  align-self: center;
+}
+
+.navbar ul {
+  list-style: none;
+  display: flex;
+  justify-content: space-between;
+  gap: 40px;
+  margin: 0;
+  padding: 0;
+  width: 100%;
+}
+
+.navbar ul li {
+  display: flex;
+  align-items: center;
+}
+
+.navbar a {
+  color: #f8e9c4;
+  text-decoration: none;
+  font-family: "Cormorant Unicase", serif;
+  font-size: 1.3rem;
+  transition:
+    color 0.3s ease,
+    transform 0.3s ease;
+}
+
+.navbar a:hover {
+  color: #d4b46a;
+  transform: scale(1.1);
+}
+
+/* SIGN-IN BLOCK ABOVE NAVBAR */
+.sign-in-container {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  gap: 12px;
+  padding: 10px 20px;
+}
+
+.sign-in-link {
+  color: #262109;
+  font-family: "Cormorant Unicase", serif;
+  font-size: 1.1rem;
+}
+
+.sign-in-container p {
+  font-family: "Cormorant Unicase", serif;
+  color: #262109;
+}
+
+.sign-in-container button {
+  background: #5f6b2a;
+  color: #fff;
+  border: 2px solid #c9a86a;
+  padding: 6px 12px;
+  border-radius: 6px;
+  cursor: pointer;
+  font-family: "Cinzel Decorative", serif;
+}
+
+.signin-warning {
+  background: #5f3b2e;
+  border: 2px solid #c9a86a;
+  color: #f8e9c4;
+  padding: 12px 16px;
+  border-radius: 6px;
+  margin-bottom: 20px;
+  font-family: "Cormorant Unicase", serif;
+  font-size: 1.2rem;
+  text-align: center;
+}
+
+/* CONTENT PANEL */
+.content {
+  background: #fdf5e6;
+  border: 2px solid #c9a86a;
+  border-radius: 10px;
+  padding: 25px;
+  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+}
+
+/* PLAYERS GRID */
+.players-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+  margin-top: 20px;
+}
+
+.player-card {
+  background: #e2e4d6;
+  padding: 15px;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.25);
+}
+
+.player-card h3 {
+  margin-top: 0;
+  font-family: "Cinzel Decorative", serif;
+}
+
+.funfact {
+  margin-top: 10px;
+  color: #444;
 }
 
 /* SIGN ON PAGE */
@@ -199,7 +267,7 @@
   max-width: 420px;
   margin: 20px auto;
   box-shadow: 0 5px 12px rgba(0, 0, 0, 0.25);
-  font-family: "Cenzel", serif;
+  font-family: "Cinzel Decorative", serif;
 }
 
 .signinform h1 {
@@ -209,7 +277,7 @@
   text-align: center;
 }
 
-label {
+.signin-form-container label {
   display: block;
   margin-bottom: 6px;
   font-weight: 700;
@@ -243,7 +311,7 @@ input[type="password"]:focus {
 input[type="submit"] {
   width: 50%;
   padding: 12px;
-  background: #8b5e34;
+  background: #18250b;
   color: #fff;
   border: none;
   border-radius: 6px;
@@ -253,7 +321,7 @@ input[type="submit"] {
 }
 
 input[type="submit"]:hover:not(:disabled) {
-  background: #6d4728;
+  background: #18250b;
 }
 
 input[type="submit"]:disabled {
@@ -270,11 +338,11 @@ input[type="submit"]:disabled {
   max-width: 600px;
   margin: 0 auto;
   box-shadow: 0 5px 12px rgba(0, 0, 0, 0.25);
-  font-family: "Nunito", sans-serif;
+  font-family: "Epilogue", sans-serif;
 }
 
 .rpg-title {
-  font-family: "Cinzel", serif;
+  font-family: "Cinzel Decorative", serif;
   text-align: center;
   color: #262109;
   margin-bottom: 20px;
@@ -329,14 +397,11 @@ input[type="submit"]:disabled {
 }
 
 .submit-btn:hover {
-  background: #796008;
+  background: #18250b;
   transform: translateY(-4px);
 }
 
 /* CREATED CHARACTERS SECTION */
-.players-grid {
-  margin-top: 30px;
-}
 
 .player-card {
   background: #e2e4d6;
@@ -355,8 +420,151 @@ input[type="submit"]:disabled {
 }
 
 .player-card h3 {
-  font-family: "Cinzel", serif;
+  font-family: "Cinzel Decorative", serif;
   margin-bottom: 10px;
+}
+
+/* LAYOUT CONTAINERS */
+
+.guild-form-container,
+.guilds {
+  width: 100%;
+  margin: 0 auto 20px auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* FORM & DISPLAY PANELS */
+
+.guild-form h1,
+.guilds h1,
+.guild-card h2 {
+  font-family: "Cinzel Decorative", serif;
+  font-size: 2rem;
+  margin-bottom: 15px;
+  color: #3b260d;
+  text-align: center;
+}
+
+.guild-form,
+.guilds {
+  width: 85%;
+  margin: 0 auto 30px auto;
+  background: var(--rpg-panel-bg, #f8e4c4);
+  border: 2px solid var(--rpg-border, #40661c);
+  border-radius: 10px;
+  padding: 30px 40px;
+  box-shadow: 0 3px 8px rgba(0, 0, 0, 0.25);
+}
+
+.guild-form label {
+  display: block;
+  margin-top: 15px;
+  font-weight: 700;
+  font-family: "Cormorant Unicase", serif;
+  color: #4b2e0f;
+}
+/* GUILD CARDS */
+
+.guilds-container {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 20px;
+  min-width: 700px;
+}
+
+.guild-card {
+  flex: 0 0 calc(50% - 20px);
+  max-width: auto;
+  box-sizing: border-box;
+  background: var(--rpg-card-bg, #f8e4c4);
+  border: 2px solid var(--rpg-border, #18250b);
+  border-radius: 6px;
+  padding: 20px;
+  margin: 10px 0;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.15);
+}
+
+.guild-card h2 {
+  margin-bottom: 10px;
+}
+
+.guild-card h3 {
+  font-family: "Cormorant Unicase", serif;
+  margin-top: 12px;
+  margin-bottom: 4px;
+  color: #3b260d;
+}
+
+.guild-card p {
+  margin: 0;
+  font-family: var(--rpg-body-font, "Epilogue", sans-serif);
+}
+
+/* LABELS */
+
+label {
+  display: block;
+  margin-bottom: 5px;
+  font-weight: 600;
+  font-family: "Cormorant Unicase", serif;
+}
+
+label:not(:first-of-type) {
+  margin-top: 10px;
+}
+
+/* INPUTS */
+
+select,
+textarea,
+input[type="text"] {
+  width: 100%;
+  padding: 8px;
+  margin-bottom: 5px;
+  background: #fffdf8;
+  border: 1px solid #b8a88a;
+  border-radius: 4px;
+  box-sizing: border-box;
+}
+
+/* SUBMIT BUTTON */
+
+input[type="submit"] {
+  display: block;
+  padding: 8px 16px;
+  margin-bottom: 10px;
+  float: right;
+  background: #40661c;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+input[type="submit"]:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+/* RADIOS & CHECKBOXES */
+
+input[type="checkbox"],
+input[type="radio"] {
+  margin-bottom: 10px;
+  box-sizing: border-box;
+}
+
+/* FIELDSET */
+
+fieldset {
+  margin-bottom: 20px;
+  border: 1px solid #b8a88a;
+  border-radius: 6px;
+  padding: 15px;
 }
 
 /* FOOTER */
@@ -365,7 +573,7 @@ input[type="submit"]:disabled {
   color: #f8e9c4;
   text-align: center;
   padding: 20px;
-  border-top: 4px #c9a86a;
+  border-top: 2px solid #c9a86a;
 }
 
 .footer-nav a {
@@ -380,7 +588,7 @@ input[type="submit"]:disabled {
 }
 
 .footer p {
-  margin-top: 10px;
-  font-family: "Bitcount Single", system-ui;
-  font-size: 1.2rem;
+  margin-top: 15px;
+  font-family: "Jacquard 12", system-ui;
+  font-size: 1.3rem;
 }

@@ -9,7 +9,12 @@ export const authGuard: CanActivateFn = (route, state) => {
     return true;
   } else {
     const router = inject(Router);
-    router.navigate(['/signin'], { queryParams: { returnUrl: state.url } });
+    router.navigate(['/signin'], {
+      queryParams: {
+        returnUrl: state.url,
+        message: 'signin-required',
+      },
+    });
     return false;
   }
 };

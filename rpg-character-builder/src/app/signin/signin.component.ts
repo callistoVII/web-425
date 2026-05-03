@@ -15,6 +15,11 @@ import { AuthService } from '../auth.service';
   imports: [ReactiveFormsModule, CommonModule],
   template: `
     <div class="signin-form-container">
+
+      @if (message) {
+        <div class="signin-warning">{{ message }}</div>
+      }
+
       <form [formGroup]="signinForm" (ngSubmit)="signin()" class="signinform">
         <h1>Sign in to continue your RPG adventure</h1>
 
@@ -65,6 +70,9 @@ import { AuthService } from '../auth.service';
   `,
 })
 export class SigninComponent {
+
+  message = '';
+
   signinForm: FormGroup = this.fb.group({
     email: [null, Validators.compose([Validators.required, Validators.email])],
     password: [
@@ -81,7 +89,13 @@ export class SigninComponent {
     private router: Router,
     private route: ActivatedRoute,
     private authService: AuthService,
-  ) {}
+  ) {
+    this.route.queryParams.subscribe(params => {
+      if (params['message'] === 'signin-required') {
+        this.message = 'You must sign in first.';
+      }
+    });
+  }
 
   signin() {
     const email = this.signinForm.controls['email'].value;

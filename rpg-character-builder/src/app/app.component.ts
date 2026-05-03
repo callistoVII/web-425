@@ -2,11 +2,12 @@ import { Component } from '@angular/core';
 import { RouterLink, RouterOutlet } from '@angular/router';
 import { CookieService } from 'ngx-cookie-service';
 import { AuthService } from './auth.service';
+import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [RouterOutlet, RouterLink],
+  imports: [RouterOutlet, RouterLink, CommonModule],
   template: `
     <div class="wrapper">
       <header class="banner">
@@ -17,27 +18,30 @@ import { AuthService } from './auth.service';
         />
       </header>
 
-      <div class="sign-in-container">
-        @if (email) {
-          <p>Welcome, {{ email }}!</p>
-          <button (click)="signout()">Sign Out</button>
-        } @else {
-          <a routerLink="/signin" class="sign-in-link">Sign In</a>
-        }
-      </div>
+      <nav class="navbar">
+        <ul>
+          <li><a routerLink="/"> Home </a></li>
+          <li><a routerLink="/players"> Players </a></li>
+          <li><a routerLink="/create-character"> Create Character </a></li>
+          <li><a routerLink="/create-guild"> Create Guild </a></li>
+          <li><a routerLink="/character-faction"> Faction </a></li>
 
+          <!-- Conditional Sign In / Welcome -->
+          <li class="nav-auth">
+            <ng-container *ngIf="email; else loggedOut">
+              <span class="welcome-text">Welcome, {{ email }}!</span>
+              <button class="signout-btn" (click)="signout()">Sign Out</button>
+            </ng-container>
+
+            <ng-template #loggedOut>
+              <a routerLink="/signin" class="sign-in-link">Sign In</a>
+            </ng-template>
+          </li>
+        </ul>
+      </nav>
+
+      <!-- ⭐ MAIN CONTENT BELOW NAVBAR -->
       <main class="main-content">
-        <nav class="navbar">
-          <ul>
-            <li><a routerLink="/"> Home </a></li>
-            <li><a routerLink="/players"> Players </a></li>
-            <li><a routerLink="/create-character"> Create Character </a></li>
-            <li><a routerLink="/create-guild"> Create Guild </a></li>
-            <li><a routerLink="/character-faction"> Faction </a></li>
-            <li><a routerLink="/signin">Sign In</a></li>
-          </ul>
-        </nav>
-
         <section class="content">
           <router-outlet></router-outlet>
         </section>
