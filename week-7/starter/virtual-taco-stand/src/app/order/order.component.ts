@@ -31,7 +31,6 @@ import { OrderSummaryComponent } from '../order-summary/order-summary.component'
 
         <fieldset>
           <legend>My Order</legend>
-
           <label for="tacoType">Taco Type</label>
           <select
             name="tacoType"
@@ -40,7 +39,7 @@ import { OrderSummaryComponent } from '../order-summary/order-summary.component'
             ngModel
           >
             @for (taco of tacos; track taco) {
-              <option [value]="taco.id">{{ taco.name }}</option>
+              <option value="{{ taco.id }}">{{ taco.name }}</option>
             }
           </select>
 
@@ -85,7 +84,10 @@ import { OrderSummaryComponent } from '../order-summary/order-summary.component'
       </form>
 
       <div class="order-summary">
-        <app-order-summary [order]="order"></app-order-summary>
+        <app-order-summary
+          [order]="order"
+          (removeTaco)="handleRemoveTaco($event)"
+        ></app-order-summary>
       </div>
     </div>
   `,
@@ -112,7 +114,7 @@ import { OrderSummaryComponent } from '../order-summary/order-summary.component'
 
       label,
       select,
-      .qty-input {
+      qty-input {
         display: block;
         margin-bottom: 5px;
       }
@@ -149,19 +151,16 @@ import { OrderSummaryComponent } from '../order-summary/order-summary.component'
       input[type='checkbox'] {
         margin-right: 5px;
       }
-
       /*
-      // Removed this from the original styling
-      .order-summary li {
-        margin-bottom: 10px;
-        padding: 5px;
-      }
-
-      */
+    // Removed this from the original styling
+    .order-summary li {
+      margin-bottom: 10px;
+      padding: 5px;
+    }
+    */
     `,
   ],
-
-  import: [FormsModule, CommonModule, OrderSummaryComponent],
+  imports: [FormsModule, CommonModule, OrderSummaryComponent],
 })
 export class OrderComponent {
   tacos: Taco[];
@@ -191,12 +190,13 @@ export class OrderComponent {
     this.order = { tacos: [], orderId: 0 };
     this.selectedTacoId = this.tacos[0].id;
     this.quantity = 1;
+    this.orderTotal = 0;
   }
 
   addToOrder() {
-    const selectedTacoNum = Number(this.tacos.find);
+    const selectedTacoNum = Number(this.selectedTacoId);
 
-    const selectedTaco = this.tacos.find(taco => taco.id === selectedTacoNum);
+    const selectedTaco = this.tacos.find((taco) => taco.id === selectedTacoNum);
 
     // random number between 1 and 1000 for order Id no decimal places
     this.order.orderId = Math.floor(Math.random() * 1000) + 1;
@@ -218,31 +218,27 @@ export class OrderComponent {
 
       this.resetForm();
     } else {
-      console.error('Taco not found in the list of available tacos.', this.selectedTacoId)
+      console.error(
+        'Taco not found in the list of available tacos.',
+        this.selectedTacoId,
+      );
     }
-
-    resetForm() {
-      if(this.tacos.length > 0) {
-        this.selectedTacoId = this.tacos[0].id;
-      }
-
-      this.quantity = 1;
-      this.noOnions = false;
-      this.noCilantro = false;
-    }
-  }
-
-  getTotal() {
-    return this.order.tacos.reduce(
-      (acc, taco) => acc + taco.price * (taco.quantity ?? 1),
-      0,
-    );
   }
 
   resetForm() {
-    this.selectedTacoId = this.tacos[0].id;
+    if (this.tacos.length > 0) {
+      this.selectedTacoId = this.tacos[0].id;
+    }
+
     this.quantity = 1;
     this.noOnions = false;
     this.noCilantro = false;
+  }
+
+  handleRemoveTaco(index: number) {
+    if (index >= 0 && index < this.order.tacos.length) {
+      this.order.tacos.splice(index, 1);
+      this.orderUpdated.emit(this.order);
+    }
   }
 }
