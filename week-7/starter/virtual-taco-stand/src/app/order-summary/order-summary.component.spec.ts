@@ -10,7 +10,7 @@ describe('OrderSummaryComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [OrderSummaryComponent, CommonModule, OrderSummaryComponent]
+      imports: [OrderSummaryComponent, CommonModule] // The original file had duplicate imports. The AI didn't catch the duplicate OrderSummaryComponent import, but it should be removed to avoid confusion.
     })
     .compileComponents();
 
